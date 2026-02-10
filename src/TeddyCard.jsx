@@ -27,7 +27,7 @@ const TeddyCard = ({ onLoveClick }) => {
   return (
     <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl max-w-sm w-full text-center border border-pink-100">
       <h1 className="text-3xl font-bold text-pink-600 mb-6 font-serif">
-        Happy Teddy Day <span className="text-red-500">❤️</span>
+        Happy Teddy Day Sumana <span className="text-red-500">❤️</span>
       </h1>
 
       <div className="relative h-48 flex items-center justify-center mb-6">
@@ -57,9 +57,24 @@ const TeddyCard = ({ onLoveClick }) => {
         </AnimatePresence>
       </div>
 
-      <p className="text-gray-700 text-lg mb-8 font-medium">
-        Sending you a teddy full of hugs and love!
-      </p>
+      <div className="text-gray-700 text-lg mb-8 font-medium h-8">
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+        >
+          {Array.from("Sending you a teddy full of hugs and love!").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.05 }}
+            >
+              {char}
+            </motion.span>
+          ))}
+        </motion.span>
+      </div>
 
       <div className="flex flex-col gap-4">
         <motion.button

@@ -38,27 +38,36 @@ const LoveModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
       <motion.div
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        initial={{ scale: 0.5, opacity: 0, rotate: -5 }}
+        animate={{ scale: 1, opacity: 1, rotate: 0 }}
         exit={{ scale: 0.5, opacity: 0 }}
-        className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl border-2 border-pink-200"
+        className="bg-[#fffdf0] rounded-lg p-8 max-w-md w-full shadow-[0_0_20px_rgba(0,0,0,0.1)] border border-stone-200 relative overflow-hidden"
       >
-        <div className="text-6xl mb-4">💖</div>
-        <h2 className="text-3xl font-bold text-pink-600 mb-4 font-serif">
-          Happy Teddy Day!
-        </h2>
-        <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-          You are my favorite person in the world.
-        </p>
+        {/* Decorative stamp */}
+        <div className="absolute top-4 right-4 text-4xl opacity-80 rotate-12">💌</div>
         
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={onClose}
-          className="bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
-        >
-          Love You Too! ❤️
-        </motion.button>
+        <div className="font-serif text-left space-y-4 text-stone-800 pt-4">
+           <p className="text-xl font-bold text-pink-600">My Dearest Sumana,</p>
+           <p className="leading-relaxed text-lg">
+             On this Teddy Day, I want to send you all the warmth and cuddles in the world. 
+             You are my favorite person, my safe place, and my greatest joy.
+           </p>
+           <p className="leading-relaxed text-lg">
+             Sending you a giant teddy bear hug! 
+           </p>
+           <p className="text-right mt-8 font-bold text-pink-600 text-xl">- Forever Yours ❤️</p>
+        </div>
+
+        <div className="mt-8 text-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onClose}
+            className="bg-pink-500 text-white font-bold py-2 px-8 rounded-full shadow-md hover:bg-pink-600 transition-colors cursor-pointer"
+          >
+            Love You Too! ❤️
+          </motion.button>
+        </div>
       </motion.div>
     </div>
   );
